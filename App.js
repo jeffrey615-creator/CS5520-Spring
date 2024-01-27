@@ -6,12 +6,18 @@ import Input from './components/Input';
 
 export default function App() {
   const appName = "My awesome app";
+  const [text, setText] = useState("");
+  function receiveInput(data){
+    console.log("receive input", data);
+    setText(data);
+  }
   
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <Header name={appName} version ={2}/>
-      <Input />
+      <Input inputHandler={receiveInput} />
+      <Text>{text}</Text>
     </View>
   );
 }

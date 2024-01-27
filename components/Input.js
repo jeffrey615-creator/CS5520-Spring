@@ -1,7 +1,7 @@
-import { StyleSheet, TextInput, View } from 'react-native'
+import { Button, StyleSheet, TextInput, View } from 'react-native'
 import React, { useState } from 'react';
 
-export default function Input() {
+export default function Input({inputHandler}) {
   const [text, setText] = useState("");
       //call back handler
   function changeTextHandler(changedText) {
@@ -9,6 +9,9 @@ export default function Input() {
     setText(changedText)
   }
 
+  function confirmHandler(){
+    inputHandler(text);
+  }
   return (
     <View>
         <TextInput 
@@ -17,6 +20,7 @@ export default function Input() {
         value={text} 
         onChangeText={changeTextHandler}
       />
+      <Button title="Confirm" onPress={confirmHandler} />
     </View>
   )
 }
