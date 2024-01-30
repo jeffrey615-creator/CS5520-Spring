@@ -18,7 +18,6 @@ export default function App() {
     setIsModalVisible(false);
   }
 
-
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
